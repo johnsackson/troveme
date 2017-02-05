@@ -1,0 +1,267 @@
+<!--<div class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{{title}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>Here's a more complex modal, it contains a form, data is passed to the controller 
+         and data is returned from the modal.</p>
+
+		<form class="form-horizontal" role="form">
+		  <div class="form-group">
+		    <label for="name" class="col-sm-2 control-label">Name</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="name" placeholder="Your Name" ng-model="name">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="age" class="col-sm-2 control-label">Age</label>
+		    <div class="col-sm-10">
+		      <input type="number" class="form-control" id="inputPassword3" placeholder="Age" ng-model="age">
+		    </div>
+		  </div>
+		</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">OK</button>
+        <button type="button" ng-click="cancel()" class="btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>-->
+<div class="modal fade tutor-profile" tabindex="-1" role="dialog" aria-labelledby="viewProfile">
+  <div class="modal-dialog modal-lg fluid_column_12 header-less-height" role="document">
+
+    <div class="modal-content callBackForm" style="display:none;">
+      <div class="modal-header">
+        <div class="container pos_relative">
+          <!--                    <h3 style="margin-top:6px;">Request a call back</h3>-->
+          <!--<button type="button" class="btn btn-primary back" aria-label="" >Back</button>-->
+          <button type="button" class="close" ng-click="moveBack()"><span aria-hidden="true">
+           <i class="icon icon-back"></i><span class="back-btn">Back</span>
+         </span></button>
+       </div>                    
+     </div>
+     <div class="callback-form">
+      <div class="modal-body">
+        <form class="" role="form" name="cntctVN"  >
+          <div class="box-body">
+           <h3 style="margin-bottom:26px; text-align:center; font-weight:400;">Request a call back</h3>
+           <div class="form-group">
+            <label for="exampleInputEmail3">Student Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail3" name="contactName" placeholder="Enter name" required ng-model="contactName" restrict-numbers>
+            <div class="form-group has-error nopadding" ng-if="(cntctVN.contactName.$invalid && cntctVN.contactName.$touched) || (cntctVN.$submitted && cntctVN.contactName.$invalid)">
+              <label class="control-label">Please enter a Name</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Parent's Name</label>
+            <input type="text" class="form-control" id="exampleInputNumber" name="parentName" placeholder="Enter Parent's Name" ng-model="contactMessage" required restrict-numbers>
+            <div class="form-group has-error nopadding" ng-if="(cntctVN.parentName.$invalid && cntctVN.parentName.$touched) || (cntctVN.$submitted && cntctVN.parentName.$invalid)">
+              <label class="control-label">Please enter a Name</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email Address</label>
+            <input name="emailContact" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required ng-model="contactEmail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true" ng-minlength="1">
+            <div class="form-group has-error nopadding" ng-if="(cntctVN.emailContact.$invalid && cntctVN.emailContact.$touched) || (cntctVN.$submitted && cntctVN.emailContact.$invalid)">
+             <label class="control-label">Please enter valid Email Address</label>
+           </div>
+         </div>                            
+         <div class="form-group">
+          <label for="exampleInputPassword1">Contact Number</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter contact number" ng-model="contactNumber" name="contactNumber" required restrict-alphabets maxlength="12">
+          <div class="form-group has-error nopadding" ng-if="(cntctVN.contactNumber.$invalid && cntctVN.contactNumber.$touched) || (cntctVN.$submitted && cntctVN.contactNumber.$invalid)">
+           <label class="control-label">Please enter a Contact Number</label>
+         </div>
+       </div>
+       <div class="action-wrap">
+         <button type="button" class="btn btn-default pull-left roundBorder10 cancel" ng-click="moveBack()">Cancel</button>
+         <button type="submit" class="btn btn-primary pull-right roundBorder10 submit" ng-click="submitContact()" ng-disabled="((!cntctVN.emailContact.$valid) || (!cntctVN.parentName.$valid) || (!cntctVN.contactName.$valid) || (!cntctVN.contactNumber.$valid))">Submit</button>
+       </div>
+     </div>
+   </form>  
+
+ </div>
+</div>
+</div>
+
+<div class="modal-content profileDetails">
+  <div class="modal-header">
+    <div class="container pos_relative">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a data-target="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a data-target="#ratecard" aria-controls="ratecard" role="tab" data-toggle="tab">RateCard</a></li>
+      </ul>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="closeModal()"><span aria-hidden="true">
+       <div class="icon icon-close"></div>
+     </span></button>
+   </div>                    
+ </div>
+ <div class="modal-body">
+  <div id="modal-content">
+    <div class="container">
+     <!-- tab panes -->
+     <div class="tab-content">
+      <div role="tabpanel" aria-controls="profile" class="tab-pane profile-viewer fade in active" id="profile">
+       <div class="media pos_relative">
+         <!-- <button class="btn btn-lg btn-tertiary callback-btn device-hidden" id="add_button" ng-click="addTutor()">Add to call back</button>-->
+
+         <span ng-if="!callBackObj">
+           <button class="btn btn-lg btn-tertiary callback-btn device-hidden" data-dismiss="modal" aria-label="Close"  id="add_button" ng-disabled="!canAddCallback" ng-click="addTutor()">Add to call back</button>
+         </span>
+         <span ng-if="callBackObj">
+           <button class="btn btn-lg btn-default callback-btn device-hidden disabled" id="add_button" disabled>Centre Added</button>
+         </span>
+
+         <div class="media-left">
+           <span ng-if="processingData.imgSrc">
+             <img class="media-object" id="imgM-{{processingData.TutorId}}" width="100" height="100" alt="Profile Image" src="{{processingData.imgSrc}}" data-holder-rendered="true"/>
+           </span>
+           <span ng-if="!processingData.imgSrc">
+             <span ng-if="processingData.Gender == 'Male'">					
+               <img class="media-object" id="imgM-{{processingData.TutorId}}" width="100" height="100" alt="Profile Image" src="images/avatar-male.png" data-holder-rendered="true"/>
+             </span>
+             <span ng-if="processingData.Gender == 'Female'">					
+               <img class="media-object" id="imgM-{{processingData.TutorId}}" width="100" height="100" alt="Profile Image" src="images/avatar-female.png" data-holder-rendered="true"/>
+             </span>
+             <span ng-if="processingData.Gender != 'Male' && processingData.Gender != 'Female'">					
+               <img class="media-object" id="imgM-{{processingData.TutorId}}" width="100" height="100" alt="Profile Image" src="images/avatar-neutral.png" data-holder-rendered="true"/>
+             </span>
+           </span>
+           <p class="text-center">{{processingData.Gender}}</p>
+         </div>
+         <div class="media-body visible-mobile">                                 
+           <h4 class="media-heading">{{processingData.FullName}}</h4>
+           <p class="small"><i class="icon icon-pin"></i>
+            <span style="vertical-align: super;" ng-bind="processingData.Area"></span></p>
+
+            <ul class="list-inline tags">                                      
+              <li ng-show="!activeSubjectsArray.length">N/A</li>
+              <li ng-repeat="subject in activeSubjectsArray | orderBy: subject"><span>{{subject}}</span></li>
+            </ul>
+          </div>
+          <div class="media-body clear-mobile">             
+           <div class="visible-desktop">                    
+            <h4 class="media-heading">{{processingData.FullName}} <span class="gender-xs visible-xs">{{processingData.Gender}}</span></h4>
+            <p class="small"><i class="icon icon-pin"></i>
+             <span style="vertical-align: super;" ng-bind="processingData.Area"></span></p>
+           </div>
+           <div class="container width50percent-md">
+            <div class="row blocks">
+             <div class="col-md-4 col-sm-4 col-xs-4">
+              <h4>Tuition Exp(Yrs)</h4>
+              <div class="value-wrap">
+               <div class="pull-left"><i class="icon icon-t-exp"></i></div>
+               <div class="pull-left">
+                <h1>{{processingData.YearsOfTeachingExperience != "0" ? processingData.YearsOfTeachingExperience : 'N/A'}}</h1></div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4">
+              <h4>Class size</h4>
+              <div class="value-wrap">
+               <div class="pull-left"><i class="icon icon-class-size"></i></div>
+               <div class="pull-left">
+                <h1>{{processingData.NumberOfCurrentStudents != "0" ? processingData.NumberOfCurrentStudents : 'N/A'}}</h1></div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4">
+              <h4>Rates starts from</h4>
+              <div class="value-wrap">
+               <div class="pull-left"><i class="icon icon-rate"></i></div>
+               <div class="pull-left">
+                <!--<h1>{{processingData.RateStartsFrom != "0" ? processingData.RateStartsFrom : 'N/A'}}<span class="small-text" ng-show="processingData.RateStartsFrom != 0">/MO</span></h1>-->
+                <h1>{{(processingData.RateStartsFrom !== 0 && processingData.RateStartsFrom !== -999) ? processingData.RateStartsFrom : 'N/A'}}<span class="small-text" ng-show="processingData.RateStartsFrom != 0 && processingData.RateStartsFrom !== -999">/MO</span></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p><strong>Degree</strong>
+        <br> {{processingData.HighestDegreeCompleted != null ? processingData.HighestDegreeCompleted : 'N/A'}}
+      </p>
+      <p><strong>About me</strong>
+        <br> {{processingData.Aboutme != null ? processingData.Aboutme : 'N/A'}}
+      </p>
+      <div class="hidden-xs">
+       <p class="min-margin"><strong>Subjects</strong></p>
+       <ul class="list-inline tags">                                      
+         <li ng-show="!activeSubjectsArray.length">N/A</li>
+         <li ng-repeat="subject in activeSubjectsArray | orderBy: subject"><span>{{subject}}</span></li>
+       </ul>
+     </div>
+     <p class="min-margin"><strong>Boards</strong></p>
+     <ul class="list-inline tags">
+      <li ng-show="!activeBoardsArray.length">N/A</li>
+      <li ng-repeat="board in activeBoardsArray | orderBy: board"><span>{{board}}</span></li>
+    </ul>
+    <p><strong>Classes</strong>
+      <br> {{processingData.Classes != null ? processingData.Classes : 'N/A'}}
+    </p>
+    <a scroll-to-top data-target="#ratecard" aria-controls="ratecard" role="tab" data-toggle="tab" class="btn btn-primary ratecard-btn">View Ratecard</a>
+  </div>
+</div>
+
+</div>
+<div role="tabpanel" aria-controls="ratecard" class="tab-pane profile-viewer fade" id="ratecard">
+  <h2>Rate card</h2>                          
+  <div ng-if="!isRateInfo">
+   <h4 style="color: rgba(0,0,0,0.5); font-weight:400; margin-top:15px;">Rates not yet available. Please Request Call Back for more information.</h4>
+ </div>
+ <div ng-if="isRateInfo">
+  <p>All rates are per month and in Rupees. Prices are indicative and may vary depending on tutor’s discretion</p>
+  <div class="tab-wrap brand-color">
+   <!-- nav tabs -->
+   <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" ng-class="{active:$first, 'hide-tab': activeBoards.indexOf(board) == -1, 'show-anyway': !activeBoards.length}" ng-repeat="board in activeBoards">
+     <a aria-controls="{{board}}" role="tab" data-toggle="tab" class="tab" id="{{board}}1" data-target="#{{processingData.TutorId}}_{{board}}">{{board | uppercase}}</a>
+     <span></span>
+   </li>
+ </ul>
+ <!-- tab panes -->
+ <div class="tab-content">
+  <div class="tab-pane" aria-controls="{{f.Board}}" ng-repeat="f in rateData | orderBy:'f.Board'" id="{{processingData.TutorId}}_{{f.Board}}" data-value="{{f.Board}}" ng-class="{active:$first, 'hide-tab': activeBoards.indexOf(f.Board) == -1, 'show-content': activeBoards.indexOf(f.Board) >= 0}">
+   <div class="table-responsive">
+    <table class="table partioned">
+     <thead>
+      <tr>
+       <th class="first-child" width="15%"><span>Class</span></th>
+       <th class="" ng-repeat="subject in activeSubjects" ng-class="{'hide-column': activeSubjects.indexOf(subject) == -1, 'show-anyway': !activeSubjects.length}" data-value="{{subject}}">
+        <span class="subject">{{subject}}</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="level in f.ClassInfo">
+     <td class="first-child" width="15%"><span>{{level.Level}}</span></td>
+     <td class="{{l.SubjectName}} show-column" ng-repeat="l in level.RateInfo" ng-class="{'hide-column': activeSubjects.indexOf(l.SubjectName) == -1, 'show-anyway': !activeSubjects.length}" data-value="{{l.SubjectName}}">
+      <!--<div ng-if="l.rate == 0"><div ng-init="l.rate= 0"></div></div>-->
+      <div class="rate-value" ng-if="((l.Rate == 0) || (!l.Rate))">
+       <div><i class="icon icon-close"></i></div>
+     </div>
+     <div class="rate-value" ng-if="((l.Rate != 0) && (l.Rate))">
+       <div ng-bind="l.Rate"></div>
+     </div>
+   </td>
+ </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>    
+<div class="modal-footer device-only">
+  <button class="btn btn-lg btn-tertiary callback-btn device-only" ng-click="addTutor()">Add to Request Call Back</button>
+</div>
+</div>
+</div>
+</div>

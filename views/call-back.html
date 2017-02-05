@@ -1,0 +1,141 @@
+<div id="canvas-callback">
+    
+    <form class="" role="form" name="cntctVN" id="request-callback" novalidate>
+       <button type="button" class="close" close-form><span aria-hidden="true">
+         <i class="icon icon-close"></i>
+       </span></button>
+       <div class="form-elements">
+         <h2>Request a call back</h2>
+         <h4>Selected Tutors </h4>
+         <div class="opted-tutor-panel">
+            <ul class="list-unstyled send-callback-list">
+                <li ng-if="tutorCallBackObj.length == 0" class="disabled"> No tutors added! </li>
+                <li class="callback-item" ng-repeat="tutor in tutorCallBackObj">{{tutor.FullName}} <span class="btn-remove" ng-click="removeTutorCallBack(tutor.TutorId, $event)"><i class="icon icon-close"></i></span></li>
+            </ul>
+         </div>
+         <div class="callback-form" autocomplete="off" ng-if="tutorCallBackObj.length != 0">
+            <!--ng-if="tutorCallBackObj.length != 0"-->
+            <!--<p style="font-size:12px;">Please enter details so we can connect you with selected tutors</p>-->
+            <div class="form-group" ng-class="{
+                                            'has-error'
+                                                    : (cntctVN.$submitted && cntctVN.contactName.$invalid) || (cntctVN.contactName.$touched && cntctVN.contactName.$invalid) }"> <span class="input input--hoshi">
+                    <input class="input__field input__field--hoshi" type="text" id="input-4" name="contactName" ng-model="callbackdataObj.studentName" restrict-numbers required is-empty-check />
+                    <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4" >
+                        <span class="input__label-content input__label-content--hoshi">Student name *</span> </label>
+                </span>
+                <div class="validation-error" ng-if="(cntctVN.contactName.$invalid && cntctVN.contactName.$touched) || (cntctVN.$submitted && cntctVN.contactName.$invalid)">Please enter a Name</div>
+            </div>
+            <div class="form-group" ng-class="{
+                                            'has-error'
+                                                    : (cntctVN.$submitted && cntctVN.contactMessage.$invalid) || (cntctVN.contactMessage.$touched && cntctVN.contactMessage.$invalid) }"> <span class="input input--hoshi">
+                    <input class="input__field input__field--hoshi" type="text" id="input-5" name="contactMessage" ng-model="callbackdataObj.parentName" required restrict-numbers ng-blur="isEmpty($event)" is-empty-check />
+                    <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-5">
+                        <span class="input__label-content input__label-content--hoshi">Parent's name *</span> </label>
+                </span>
+                <div class="validation-error" ng-if="(cntctVN.contactMessage.$invalid && cntctVN.contactMessage.$touched) || (cntctVN.$submitted && cntctVN.contactMessage.$invalid)">Please enter a Name</div>
+            </div>
+            <div class="form-group" ng-class="{
+                                            'has-error'
+                                                    : (cntctVN.$submitted && cntctVN.contactEmail.$invalid) || (cntctVN.contactEmail.$touched && cntctVN.contactEmail.$invalid) }"> <span class="input input--hoshi">
+                    <input class="input__field input__field--hoshi" type="text" id="input-6" name="contactEmail" required ng-model="callbackdataObj.parentEmail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true" ng-minlength="1" is-empty-check />
+                    <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-6">
+                        <span class="input__label-content input__label-content--hoshi">Email address *</span> </label>
+                </span>
+                <div class="validation-error" ng-if="(cntctVN.contactEmail.$invalid && cntctVN.contactEmail.$touched) || (cntctVN.$submitted && cntctVN.contactEmail.$invalid)">Please enter an Email address</div>
+            </div>
+            <div class="form-group" ng-class="{
+                                            'has-error'
+                                                    : (cntctVN.$submitted && cntctVN.contactNumber.$invalid) || (cntctVN.contactNumber.$touched && cntctVN.contactNumber.$invalid) }"> <span class="input input--hoshi">
+                    <input class="input__field input__field--hoshi" type="text" id="input-6" ng-model="callbackdataObj.parentPhone" name="contactNumber" required restrict-alphabets maxlength="12" is-empty-check />
+                    <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-6">
+                        <span class="input__label-content input__label-content--hoshi">Contact number *</span> </label>
+                </span>
+                <div class="validation-error" ng-if="(cntctVN.contactNumber.$invalid && cntctVN.contactNumber.$touched) || (cntctVN.$submitted && cntctVN.contactNumber.$invalid)">Please enter a Contact number</div>
+            </div>
+         </div>
+       </div>
+        
+        <div class="action-wrap" ng-if="tutorCallBackObj.length != 0">
+            <button type="button" class="btn btn-cancel pull-left roundBorder10 cancel" id="callbackform-cancel" ng-click="moveBack()" close-form>Cancel</button>
+            <button type="submit" class="btn btn-primary pull-right roundBorder10 submit" id="callbackform-submit" ng-click="submitContact()" ng-disabled="((!cntctVN.contactEmail.$valid) || (!cntctVN.contactMessage.$valid) || (!cntctVN.contactName.$valid) || (!cntctVN.contactNumber.$valid))">Submit 
+            <div class="preloader-wrap show-loader">
+                <span class="preloader">
+                    <i class="icon icon-loader"></i>
+                </span>
+            </div>
+            </button>
+        </div>
+    </form>
+    
+    <div id="canvas-success">
+        <div class="title">
+            <span class="icon icon-tick"></span>            
+            <h2>Thank you!</h2>
+            <h4>Your selected tutors will get in touch with you.</h4>
+        </div>
+        <div class="highlights">
+            <p>We demand that you make sure:</p>
+            <ul class="list-unstyled">
+                <li><i class="icon icon-tick"></i> 90% unexcused attendance.</li>
+                <li><i class="icon icon-tick"></i> Daily submission of student work.</li>
+                <li><i class="icon icon-tick"></i> Daily participation in online quiz.</li>
+                <li><i class="icon icon-tick"></i> Daily participation in chapter test.</li>
+                <li><i class="icon icon-tick"></i> Reporting school tests &amp; exam scores.</li>
+                <li><i class="icon icon-tick"></i> Buy a tablet.</li>
+            </ul>
+        </div>
+        <div class="more-info">
+            <h3>What would you like to do next?</h3>
+            <div class="row no-margin">
+                <a href="#" class="btn btn-quaternary btn-lg" close-form data-target="findmore">Find more Tutors</a> 
+                <a href="http://www.vidyanext.com/learning-model/" class="btn btn-quaternary btn-lg">Vidyanext Learning System</a>
+            </div>
+        </div>
+    </div>
+    <div id="canvas-error">
+        <div class="title">
+            <span class="icon-section">
+                <i class="icon icon-close"></i>
+            </span>            
+            <h2>Oops!</h2>
+            <h4>Something went wrong, please try again!</h4>
+        </div>
+        <div class="more-info">
+            <div class="row no-margin">
+                <a href="#" class="btn btn-outline btn-lg" retry-form>Try again!</a>
+            </div>
+        </div>
+    </div>
+</div>
+             
+            <!--<div class="box-body">
+                <div class="form-group" ng-class="{
+                                            'has-error'
+                                                    : (cntctVN.$submitted && cntctVN.contactName.$invalid) || (cntctVN.contactName.$touched && cntctVN.contactName.$invalid) }">
+                    <input type="text" class="form-control" id="" name="contactName" placeholder="Student name *" required ng-model="contactName" restrict-numbers>
+                    <div class="validation-error" ng-if="(cntctVN.contactName.$invalid && cntctVN.contactName.$touched) || (cntctVN.$submitted && cntctVN.contactName.$invalid)">Please enter a Name</div>
+                </div>
+                <div class="form-group" ng-class="{
+                                            'has-error'
+                                                    : (cntctVN.$submitted && cntctVN.contactMessage.$invalid) || (cntctVN.contactMessage.$touched && cntctVN.contactMessage.$invalid) }">
+                    
+                    <input type="text" class="form-control" id="exampleInputNumber" name="contactMessage" placeholder="Parent's name *" ng-model="contactMessage" required restrict-numbers>
+                    <div class="validation-error" ng-if="(cntctVN.contactMessage.$invalid && cntctVN.contactMessage.$touched) || (cntctVN.$submitted && cntctVN.contactMessage.$invalid)">Please enter a Name</div>
+                </div>
+                <div class="form-group" ng-class="{
+                                            'has-error'
+                                                    : (cntctVN.$submitted && cntctVN.contactEmail.$invalid) || (cntctVN.contactEmail.$touched && cntctVN.contactEmail.$invalid) }">
+                    <input name="contactEmail" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email address *" required ng-model="contactEmail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true" ng-minlength="1">
+                    <div class="validation-error" ng-if="(cntctVN.contactEmail.$invalid && cntctVN.contactEmail.$touched) || (cntctVN.$submitted && cntctVN.contactEmail.$invalid)">Please enter an Email address</div>
+                </div>                            
+                <div class="form-group" ng-class="{
+                                            'has-error'
+                                                    : (cntctVN.$submitted && cntctVN.contactNumber.$invalid) || (cntctVN.contactNumber.$touched && cntctVN.contactNumber.$invalid) }">
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Contact number *" ng-model="contactNumber" name="contactNumber" required restrict-alphabets maxlength="12">
+                    <div class="validation-error" ng-if="(cntctVN.contactNumber.$invalid && cntctVN.contactNumber.$touched) || (cntctVN.$submitted && cntctVN.contactNumber.$invalid)">Please enter a Contact number</div>
+                </div>
+                <div class="action-wrap">
+                   <button type="button" class="btn btn-default pull-left roundBorder10 cancel" ng-click="moveBack()">Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-right roundBorder10 submit" ng-click="submitContact()" ng-disabled="((!cntctVN.contactEmail.$valid) || (!cntctVN.contactMessage.$valid) || (!cntctVN.contactName.$valid) || (!cntctVN.contactNumber.$valid))">Request callback</button>
+                </div>
+            </div>  -->

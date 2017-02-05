@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bangalore Maths & Sciences Tutors for CBSE, ICSE & Karnataka State Board</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dist/css/app.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-red sidebar-mini" ng-app="vnApp" ng-controller="rgstrtnCntl">
+
+    <div class="container-fluid nopadding">
+        <div class="row fullheight">
+            <div class="col-md-12" id="relatv">
+                <div class="col-md-3 col-sm-6 col-xs-12 sideSearch">
+                    <div class="row padded">
+                        <div class="col-md-12 text-center">
+                            <h3 class="whiteText">Search Tutors</h3>
+                        </div>
+                        <div class="form-group formleft">
+                            <label for="exampleInputEmail1" class="orangeText">Gender</label>
+                            <select class="form-control">
+                                <option>All</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group formleft">
+                            <label for="exampleInputEmail1" class="orangeText">Distance</label>
+                            <div class="checkbox">
+                                <label class="whiteText">
+                                    <input type="checkbox">
+                                    < 1 KM
+                                </label>
+                            </div>
+
+                            <div class="checkbox">
+                                <label class="whiteText">
+                                    <input type="checkbox">
+                                    < 2 KM
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="whiteText">
+                                    <input type="checkbox">
+                                    < 3 KM
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="whiteText">
+                                    <input type="checkbox">
+                                    < 5 KM
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="whiteText">
+                                    <input type="checkbox">
+                                    < 10 KM
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12" id="map">
+                    <div class="google-map-canvas" id="map-canvas">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 sidebar_grey">
+                    <div class="row padded">
+                        <div class="col-md-12 text-center">
+                            <h3>15 results Near by your location</h3>
+                        </div>
+                    </div>
+
+                    <div class="row width98">
+                        <div class="col-md-6 text-center">
+                            <div class="form-group formleft">
+                                <label for="exampleInputEmail1" class="orangeText">Board</label>
+                                <select class="form-control">
+                                    <option>All</option>
+                                    <option>ICSE</option>
+                                    <option>CBSE</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <div class="form-group formleft">
+                                <label for="exampleInputEmail1" class="orangeText">Subject</label>
+                                <select class="form-control">
+                                    <option>All</option>
+                                    <option>Physics</option>
+                                    <option>Maths</option>
+                                    <option>Chemistry</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <div class="form-group formleft">
+                                <label for="exampleInputEmail1" class="orangeText">Standard</label>
+                                <select class="form-control">
+                                    <option>All</option>
+                                    <option>8th</option>
+                                    <option>9th</option>
+                                    <option>10th</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <div class="form-group">
+                                <label for="pac-input" class="orangeText">Location</label>
+                                <input type="text" class="form-control" id="pac-input" placeholder="Enter location">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--<div class="row padded">
+                        <div class="col-md-6 text-center">
+                            <div class="form-group">
+                                <select class="form-control" id="sel1">
+                                    <option>Select Subject</option>
+                                    <option>Physics</option>
+                                    <option>Mathematics</option>
+                                    <option>Chemistry</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="user-block active">
+                        <img class="img-circle img-bordered-sm" src="dist/img/avatar.png" alt="user image">
+                        <span class="username">
+                            <a href="#">Sarah Ross</a>
+                        </span>
+                        <span class="description">9 years of experience<br /> Physics Mathematics</span>
+                    </div>
+                    <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="dist/img/avatar2.png" alt="user image">
+                        <span class="username">
+                            <a href="#">Sarah Ross</a>
+                        </span>
+                        <span class="description">4 years of experience<br /> Chemistry</span>
+                    </div>
+                    <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="dist/img/avatar3.png" alt="user image">
+                        <span class="username">
+                            <a href="#">Sarah Ross</a>
+                        </span>
+                        <span class="description">6 years of experience<br /> Biology Chemistry</span>
+                    </div>
+                    <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="dist/img/avatar04.png" alt="user image">
+                        <span class="username">
+                            <a href="#">Sarah Ross</a>
+                        </span>
+                        <span class="description">9 years of experience<br /> Physics Mathematics</span>
+                    </div>
+                    <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="dist/img/avatar5.png" alt="user image">
+                        <span class="username">
+                            <a href="#">Sarah Ross</a>
+                        </span>
+                        <span class="description">4 years of experience<br /> Chemistry</span>
+                    </div>
+                    <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="dist/img/avatar3.png" alt="user image">
+                        <span class="username">
+                            <a href="#">Sarah Ross</a>
+                        </span>
+                        <span class="description">6 years of experience<br /> Biology Chemistry</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ./wrapper -->
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="plugins/Angular/angular.min.js"></script>-->
+    <script>
+
+        function initMap() {
+
+            var styles = [
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#0ab8f7"
+            },
+            {
+                "saturation": -48
+            },
+            {
+                "lightness": 18
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#0ab8f7"
+            },
+            {
+                "saturation": -48
+            },
+            {
+                "lightness": 18
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.terrain",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "saturation": -5
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.school",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.attraction",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.government",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#dedace"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "saturation": -21
+            },
+            {
+                "lightness": 48
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway.controlled_access",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "saturation": -29
+            },
+            {
+                "lightness": 42
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "saturation": -13
+            },
+            {
+                "lightness": 47
+            }
+        ]
+    }
+            ];
+
+
+
+            var bengaluru = { lat: 12.9713222, lng: 77.594224 };
+            var bengaluru1 = { lat: 12.986116, lng: 77.626133 };
+            var bengaluru2 = { lat: 12.968384, lng: 77.633686 };
+            var bengaluru3 = { lat: 12.963835, lng: 77.658108 };
+            var bengaluru4 = { lat: 13.000336, lng: 77.591672 };
+            var bengaluru5 = { lat: 12.959013, lng: 77.596266 };
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: bengaluru,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapTypeControl: false
+            });
+
+
+            var contentString = ' <div class="userInfoPop"><div class="user-block1 active"> <img class="img-circle img-bordered-sm" src="dist/img/avatar.png" alt="user image"> <span class="username"> <a href="#">Sarah Ross</a> </span> <span class="description">9 years of experience<br /> Physics Mathematics</span> </div><div class="popupAbout"><span class="description">About Me :</span> <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence</p></div><div class="box-footer"> <button class="btn btn-default btn-block roundBorder" onclick="showContactForm()">Contact</button> </div></div> <div class="contactPopForm"><form role="form"> <div class="box-body"> <div class="form-group"> <label for="exampleInputEmail1">Email address</label> <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"> </div> <div class="form-group"> <label for="exampleInputPassword1">Password</label> <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> </div> </div><div class="box-footer"> <button type="submit" class="btn btn-primary" >Submit</button> </div> </form></div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+
+
+
+            var input = (document.getElementById('pac-input'));
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
+
+
+
+            var marker = new google.maps.Marker({
+                icon: 'dist/img/location_active.png',
+                position: bengaluru,
+                map: map
+            });
+
+            var marker1 = new google.maps.Marker({
+                icon: 'dist/img/location.png',
+                position: bengaluru1,
+                map: map
+            });
+
+            var marker2 = new google.maps.Marker({
+                icon: 'dist/img/location.png',
+                position: bengaluru2,
+                map: map
+            });
+
+            var marker3 = new google.maps.Marker({
+                icon: 'dist/img/location.png',
+                position: bengaluru3,
+                map: map
+            });
+
+            var marker4 = new google.maps.Marker({
+                icon: 'dist/img/location.png',
+                position: bengaluru4,
+                map: map
+            });
+
+            var marker5 = new google.maps.Marker({
+                icon: 'dist/img/location.png',
+                position: bengaluru5,
+                map: map
+            });
+
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+
+            map.setOptions({ styles: styles });
+
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                //infowindow.close();
+                var place = autocomplete.getPlace();
+                console.log(place)
+                if (!place.geometry) {
+                    return;
+                }
+
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);
+                }
+
+                // Set the position of the marker using the place ID and location.
+                marker.setPlace(/** @type {!google.maps.Place} */({
+                    placeId: place.place_id,
+                    location: place.geometry.location
+                }));
+                marker.setVisible(true);
+            });
+        }
+
+        function showContactForm() {
+            $(".userInfoPop").hide(function () {
+                $(".contactPopForm").show();
+            });
+
+        }
+
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWdv_t6jzpndApIRsg1sPcRuCDexgzpmg&signed_in=false&callback=initMap&libraries=places"></script>
+</body>
+</html>

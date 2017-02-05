@@ -1,0 +1,42 @@
+<div class="navbar navbar-default" role="navigation">
+ <div class="container">
+   <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+       <span class="sr-only">Toggle navigation</span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand hidden-xs" id="logo" href="http://www.vidyanext.com/">
+         <img src="images/vidyanext-logo.png" title="" alt="Vidyanext" class="img-logo" />
+     </a>
+     <a class="navbar-brand visible-xs" id="logo" href="http://www.vidyanext.com/"  style="display:none !important">
+         <img src="images/vidyanext-logo-xs.png" title="" alt="Vidyanext" class="img-logo" />
+     </a>
+   </div>
+   <ul class="list-inline view-options">
+      <!--<li><a ng-href="#/"><span>Map View</span></a></li>
+      <li><a ng-href="/#/list"><span>List View</span></a></li>
+      <li><a ng-href="#/" onclick="showSearch()"><i class="icon icon-search"></span></a></li>-->      
+      <!--<li class="listView"><a href="javascript:void(0)" ng-click="showList()" title="List view"><i class="icon icon-list-view"></i></a></li>
+      <li class="mapView active"><a href="javascript:void(0)" ng-click="showMap()" title="Map view"><i class="icon icon-map-view"></i></a></li>
+      <li class="searchView"><a href="javascript:void(0)" ng-click="showSearch()" title="Search"><i class="icon icon-search"></i></a></li>-->
+      <li class="viewChange" view-change><a href="javascript:void(0)" title="Change view">
+         <i class="icon icon-list-view"></i></a>
+      </li>
+      <li class="searchView"><a href="javascript:void(0)" ng-click="showSearch()" title="Search"><i class="icon icon-search"></i></a></li>
+      <li class="mapView">
+        <a href="javascript:void(0)" ng-click="showMap()" title="Map view" canvas>
+         <i class="icon icon-callback"></i><span class="count"></span></a>
+      </li>
+   </ul>
+   <div class="collapse navbar-collapse" id="js-navbar-collapse">
+      
+     <ul class="nav navbar-nav navbar-right" id="primary-nav">
+       <li><a href="http://vidyanext.com/learning-model"><span>Our Learning Model</span></a></li>
+       <li class="active"><a ng-href="http://vidyanext.com/parent/find-cbse-icse-state-board-tutors/"><span>Find a Tutor</span></a></li>
+       <li><a ng-href="http://vidyanext.com/become-a-tutor"><span>Become a Tutor</span></a></li>
+     </ul>
+   </div>
+ </div>
+</div>

@@ -1,0 +1,109 @@
+<!--overlay -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<div class="overlay location-search">
+   <div class="form-wrap page-level">
+      <form id="form-location-search" method="post" name="findTutorCenter" ng-submit="findTutorCenterSearch(findTutorCenter.$valid, tutorSearchObj)" novalidate>
+         <div class="form-group location-search pos_relative" ng-class="{
+                                            'has-error'
+                                                    : (findTutorCenter.$submitted && findTutorCenter.location.$invalid) || (findTutorCenter.location.$touched && findTutorCenter.location.$invalid) }">
+            <input type="text" name="location" id="inputAutoComplete" class="form-control" autofocus="autofocus" ng-model="tutorSearchObj.chosenPlace" googleplace placeholder="Enter your Area" required />            
+            <div class="icon-wrap">
+                <!--<a tabindex="-1" href="#" class="disable-link">
+                    <i class="icon icon-search input"></i>
+                </a>-->
+                <a tabindex="-1" href="#" class="" ng-click="clearInput()" style="display:none;">
+                    <i class="icon icon-close clear"  ng-click="clearInput()"></i>
+                </a>
+                <a tabindex="-1" href="#" class="locate-btn" data-animation="false" data-toggle="tooltip" data-placement="top" title="{{locationMessage}}" data-original-title="{{locationMessage}}" ng-click="findMeInMap()">
+                    <i class="icon icon-location"></i>
+                </a>
+            </div>            
+            <div class="validation-error" ng-if="(findTutorCenter.location.$invalid && findTutorCenter.location.$touched) || (findTutorCenter.$submitted && findTutorCenter.location.$invalid)" ng-messages-include="views/shared/error-messages.html">
+               Please choose a Location
+            </div>
+         </div>         
+         <div class="filter-options">
+            <h2>What are you looking for</h2>
+            <div class="selectbox-warp">
+               <div class="form-group" ng-class="{
+                                               'has-error'
+                                                       : (findTutorCenter.$submitted && findTutorCenter.board.$invalid) || (findTutorCenter.board.$touched && findTutorCenter.board.$invalid) }">
+                  <select class="form-control" name="board" ng-model="tutorSearchObj.board" ng-options="board for board in grossBoards track by board" required>
+                     <option value="" selected="selected">Select a Board</option>
+                  </select>
+                  <div class="validation-error" ng-if="(findTutorCenter.board.$invalid && findTutorCenter.board.$touched) || (findTutorCenter.$submitted && findTutorCenter.board.$invalid)" ng-messages-include="views/shared/error-messages.html">
+                     Please select a Board
+                  </div>
+               </div>
+               <div class="form-group" ng-class="{
+                                               'has-error'
+                                                       : (findTutorCenter.$submitted && findTutorCenter.standard.$invalid) || (findTutorCenter.standard.$touched && findTutorCenter.standard.$invalid) }">
+                  <select class="form-control" name="standard" ng-model="tutorSearchObj.standard" ng-options="standard for standard in grossStandards track by standard" required>
+                     <option value="" selected="selected">Select a Class</option>
+                  </select>
+                  <div class="validation-error" ng-if="(findTutorCenter.standard.$invalid && findTutorCenter.standard.$touched) || (findTutorCenter.$submitted && findTutorCenter.standard.$invalid)" ng-messages-include="views/shared/error-messages.html">
+                     Please select a Class
+                  </div>
+               </div>
+               <!--<div class="form-group">
+                  <select class="form-control" name="subject" ng-model="tutorSearchObj.subject" ng-init="findTutorCenter.subject = grossSubjects[0]" ng-options="subject for subject in grossSubjects track by subject">
+                  </select>
+               </div>-->
+                <div class="form-group">
+                      <button type="button" class="btn dropdown-toggle select-box" ng-model="subjectSubmitValues" data-toggle="dropdown"><span ng-if="!options.length">Any Subject</span><span ng-if="options.length>=1">{{subjectValues}}</span><span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="subject in grossSubjects track by subject">
+                            <a href="#" class="small" data-value="{{subject}}" ng-class='{hide:$first}' set-focus="$first" tabindex="1" multi-select-checkbox>
+                                <input type="checkbox" data-subject="{{subject}}" ng-checked="$first" ng-value="subject" />&nbsp;{{subject}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="button-warp">
+               <button type="submit" class="btn btn-primary">GO</button><!--btn btn-primary show-callback -->
+               
+               <div class="btn-animate btn-7 btn-7f btn-icon-only icon icon-callback" id="tutorAdded" canvas tooltip data-toggle="tooltip" data-placement="bottom">              
+                  <span class="count anim" ng-if="count != 0"></span>
+                  <span class="count" id="tutorsCount" ng-if="count != 0">{{count}}</span>
+               </div>
+               <!--<div class="btn btn-7 btn-7f btn-icon-only icon icon-star">Fav</div>-->
+            </div>
+         </div>
+         
+         <!--<div class="validation-wrap">
+            <p class="error-msg" ng-if="(findTutorCenter.location.$invalid && findTutorCenter.location.$touched) || (findTutorCenter.$submitted && findTutorCenter.location.$invalid)" ng-messages-include="views/shared/error-messages.html">
+               Please choose a Location
+            </p>
+            <p class="error-msg" ng-if="(findTutorCenter.board.$invalid && findTutorCenter.board.$touched) || (findTutorCenter.$submitted && findTutorCenter.board.$invalid)" ng-messages-include="views/shared/error-messages.html">
+               Please select a Board
+            </p>
+            <p class="error-msg" ng-if="(findTutorCenter.standard.$invalid && findTutorCenter.standard.$touched) || (findTutorCenter.$submitted && findTutorCenter.standard.$invalid)" ng-messages-include="views/shared/error-messages.html">
+               Please select a Class
+            </p>
+         </div>-->
+      </form>
+     
+      <div class="name-search" ng-show="showNameSearch">
+       <h2>Or</h2>
+      <form id="form-profile-search" method="post" name="findTutorProfile" ng-submit="findTutorProfilesSearch(findTutorProfile.$valid, profileName)" novalidate>
+        <div class="form-group form-profile" >
+           <input type="text"  class="form-control profile-field" name="profilename" ng-model="profileName" placeholder="Enter Tutor name to search for" required>
+           
+         </div>
+         <div class=" profile-go">
+           <button type="submit" class="btn btn-primary">GO</button>
+           </div>
+         </form>
+         </div>
+   </div>
+   
+   <!--preloader-->
+   <div class="preloader-wrap">
+       <span class="preloader lg">
+           <i class="icon icon-loader"></i>
+       </span>
+   </div>     
+   <!--/preloader--> 
+</div>
+<!--overlay -->

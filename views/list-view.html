@@ -1,0 +1,64 @@
+<div>
+   <ul class="list-unstyled">
+      <li class="list-item" ng-repeat="data in filteredData  | orderBy:'distance'">
+         <div class="media">
+            <div class="media-left">
+               <span ng-if="data.imgSrc">
+                   <img class="media-object" id="imgM-{{data.TutorId}}" width="100" height="100" alt="Profile Image" src="{{data.imgSrc}}" data-holder-rendered="true"/>
+               </span>
+<span ng-if="!data.imgSrc">
+                   <span ng-if="data.Gender == 'Male'">					
+                       <img class="media-object" id="imgM-{{data.TutorId}}" width="100" height="100" alt="Profile Image" src="images/avatar-male.png" data-holder-rendered="true"/>
+                   </span>
+<span ng-if="data.Gender == 'Female'">					
+                       <img class="media-object" id="imgM-{{data.TutorId}}" width="100" height="100" alt="Profile Image" src="images/avatar-female.png" data-holder-rendered="true"/>
+                   </span>
+<span ng-if="data.Gender != 'Male' && data.Gender != 'Female'">					
+                       <img class="media-object" id="imgM-{{data.TutorId}}" width="100" height="100" alt="Profile Image" src="images/avatar-neutral.png" data-holder-rendered="true"/>
+                   </span>
+               </span>
+               <p class="text-center">{{data.Gender}}</p>
+            </div>
+            <div class="media-body pos_relative">
+               <h4 class="media-heading">{{data.FullName}}</h4>
+               <p class="small"><i class="icon icon-pin"></i>
+                  <span style="vertical-align: super;" ng-bind="data.Area"></span></p>
+               <ul class="list-inline tags">
+                  <li ng-show="!data.subjectsArray.length">N/A</li>
+                  <li ng-repeat="subject in data.subjectsArray | orderBy: subject"><span>{{subject}}</span></li>
+               </ul>              
+            </div>
+         </div>
+         <div class="container-fluid">
+            <div class="row blocks">
+               <div class="col-md-4 col-sm-4 col-xs-4">
+                  <!--<h4>Tuition Exp(Yrs)</h4>-->
+                  <div class="value-wrap">
+                     <div class="pull-left"><i class="icon icon-t-exp"></i></div>
+                     <div class="pull-left">
+                        <h1>{{data.YearsOfTeachingExperience != "0" ? data.YearsOfTeachingExperience : 'N/A'}}</h1></div>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-4 col-xs-4">
+                  <!--<h4>Class size</h4>-->
+                  <div class="value-wrap">
+                     <div class="pull-left"><i class="icon icon-class-size"></i></div>
+                     <div class="pull-left">
+                        <h1>{{data.NumberOfCurrentStudents != "0" ? data.NumberOfCurrentStudents : 'N/A'}}</h1></div>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-4 col-xs-4">
+                  <!--<h4>Rates starts from</h4>-->
+                  <div class="value-wrap">
+                     <div class="pull-left"><i class="icon icon-rate"></i></div>
+                     <div class="pull-left">
+                        <h1>{{(data.RateStartsFrom !== 0 && data.RateStartsFrom !== -999) ? data.RateStartsFrom : 'N/A'}}<span class="small-text" ng-show="data.RateStartsFrom != 0 && data.RateStartsFrom !== -999">/MO</span></h1></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <button type="button" class="btn btn-tertiary btn-lg btn-block" ng-click="listViewShowProfile(data)" style="margin-top:6px;">View Profile</button>
+      </li>
+   </ul>
+</div>
+

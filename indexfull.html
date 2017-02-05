@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bangalore Maths & Sciences Tutors for CBSE, ICSE & Karnataka State Board</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dist/css/app.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-red sidebar-mini">
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Contact</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Name</label>
+                                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Contact Number</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter contact number" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Description</label>
+                                <textarea class="form-control" rows="3" placeholder="Enter decription"></textarea>
+                            </div>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--<header class="main-header">
+        
+        <a href="index2.html" class="logo">
+            <span class="logo-lg"><img src="dist/img/logo.png" width="160px" height="40px" /></span>
+        </a>
+       
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="padded7">
+                        <button class="btn btn-block btn-default roundBorder" data-toggle="modal" data-target="#myModal">Contact</button>
+                    </li>
+                    <li class="padded7">
+                        <button class="btn btn-block btn-default roundBorder">Become Tutor</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-custom-menu searchLocNav">
+                <input type="text" class="form-control" id="pac-input" placeholder="Enter location">
+            </div>
+        </nav>
+    </header>-->
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="dist/img/logo.png" width="160px" height="40px" /></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <div class="col-sm-6 col-md-6 pull-left">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="pac-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <ul class="nav navbar-nav pull-right">
+                <li class="padded7"><button class="btn btn-block btn-default roundBorder fixedWidthBtn" data-toggle="modal" data-target="#myModal">Contact VidyaNext</button></li>
+                <li class="padded7"><button class="btn btn-block btn-default roundBorder fixedWidthBtn">Become Tutor</button></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid nopadding " ng-app="mapsApp" ng-controller="MapCtrl">
+
+
+
+        <div class="row fullheight">
+            <div class="col-md-12" id="relatv">
+
+                
+                <div class="col-md-12 col-sm-6 col-xs-12" id="map">
+                    <div class="google-map-canvas" id="map-canvas">
+                    </div>
+                </div>
+                <!--<div class="col-md-6 col-sm-6 col-xs-12 sidebar_grey">
+                    <div class="row padded">
+                        <div class="col-md-12 text-center">
+                            <h3>{{filteredData.length}} results Near by your location</h3>
+                        </div>
+                    </div>
+
+                    <div class="row width98 marginLeft5">
+                        <div class="col-md-4 text-center">
+                            <div class="form-group formleft">
+                                <label for="exampleInputEmail1" class="orangeText">Board</label>
+                                <select class="form-control" ng-model="filterBoard" ng-change="updateFilter()">
+                                    <option ng-repeat="item in uniqueBoard" value="{{item}}">{{item}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 text-center">
+                            <div class="form-group formleft">
+                                <label for="exampleInputEmail1" class="orangeText">Subject</label>
+                                <select class="form-control" ng-model="filterSubject" ng-change="updateFilter()">
+                                    <option ng-repeat="item in uniqueSubject" value="{{item}}">{{item}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 text-center">
+                            <div class="form-group formleft">
+                                <label for="exampleInputEmail1" class="orangeText">Class</label>
+                                <select class="form-control" ng-model="filterStandard" ng-change="updateFilter()">
+                                    <option ng-repeat="item in uniqueStandard" value="{{item}}">{{item}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="user-block" ng-repeat="(indexUser,item) in filteredData" ng-class="getClass(item.contactNumber)" ng-attr-id="{{ item.contactNumber }}" ng-click="updateNumber(item.contactNumber)">
+                        <span class="username">
+                            <a href="#">{{item.name}}</a>
+                        </span>
+                        <span class="description">Class : {{item.level}}<br />{{item.subject}}</span>
+                    </div>
+                </div>-->
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ./wrapper -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWdv_t6jzpndApIRsg1sPcRuCDexgzpmg&signed_in=false&libraries=places,geometry"></script>
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/Angular/angular.min.js"></script>
+
+    <script src="dist/js/app.js"></script>
+</body>
+</html>
